@@ -1,1 +1,1 @@
-ansible-playbook main.yml -vvv
+ansible-playbook main.yml --ask-become-pass -vvv
