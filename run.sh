@@ -1,2 +1,1 @@
-echo [all] > inventory
-aws ec2 describe-instances --profile udacity --query 'Reservations[*].Instances[*].PublicIpAddress' --output text >> inventory
+ansible-playbook main-remote.yml -i inventory --private-key udacity-key.pem -vvv

@@ -29,10 +29,10 @@
     mode: 0755
 
 - name: "install index.js file"
-  copy:
+  template:
     src: files/index.js
     dest: ~/web/index.js
-    mode: 0775
 
 - name: "start the application"
-  command: pm2 start ~/web/index.js -f
+  shell: |
+    pm2 start ~/web/index.js -f

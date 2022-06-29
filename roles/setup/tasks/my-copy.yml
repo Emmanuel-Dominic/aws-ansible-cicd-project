@@ -24,15 +24,15 @@
 
 - name: "create /web directory"
   file:
-    path: ~/web
+    path: /web
     state: directory
     mode: 0755
 
 - name: "install index.js file"
   copy:
     src: files/index.js
-    dest: ~/web/index.js
+    dest: /web/index.js
     mode: 0775
 
 - name: "start the application"
-  command: pm2 start ~/web/index.js -f
+  command: pm2 start /web/index.js -f
