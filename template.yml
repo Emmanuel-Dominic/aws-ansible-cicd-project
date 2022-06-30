@@ -11,8 +11,8 @@ Resources:
       KeyName: udacity-key
       # Change this, as applicable to you
       # You may need to find out what instance types are available in your region - use https://cloud-images.ubuntu.com/locator/ec2/
-      ImageId: 'ami-0f65ab0fd913bc7be'
-      InstanceType: t3.micro
+      ImageId: 'ami-070650c005cce4203'
+      InstanceType: t2.micro
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
