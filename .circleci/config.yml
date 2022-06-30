@@ -5,15 +5,13 @@ jobs:
         - image: python:3.7-alpine3.11
       steps:
         - checkout
-        - add_ssh_keys: ["${SSH_KEY_VALUE}"]
+        - add_ssh_keys: ["$SSH_KEY_VALUE"]
         - run:
             name: Install Ansible
-            command: |
-              apk add --update ansible
+            command: apk add --update ansible
         - run:
             name: Configure EC2
-            command: |
-              ansible-playbook -i inventory template.yml
+            command: ansible-playbook -i inventory template.yml
 # Sequential workflow
 workflows:
   my_workflow:
