@@ -9,14 +9,6 @@ orbs:
 # Orchestrate or schedule a set of jobs
 
 commands:
-  # Exercise: Reusable Job Code
-  print_pipeline_id:
-    parameters:
-      id:
-        type: string
-    steps:
-      - run: echo << parameters.id >>
-
   # Exercise - Rollback
   destroy_environment:
     steps:
@@ -29,16 +21,6 @@ commands:
             aws cloudformation delete-stack --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5}
 
 jobs:
-  print_greetings:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - print_pipeline_id:
-          id: << pipeline.id >>
-      - run: echo HELLO
-      - run: echo WORLD
-      - run: echo $_env_name
-
   # Exercise: Promote to Production - Job 1
   # Prerequisite:
   # 1. An S3 bucket (say `mybucket644752792305`) with a sample index.html created manually in your AWS console.
@@ -131,8 +113,6 @@ workflows:
   my_workflow:
     # Run the welcome/run job in its own container
     jobs:
-      # - welcome/run
-      - print_greetings
       - create_and_deploy_front_end
       - promote_to_production:
           requires:
